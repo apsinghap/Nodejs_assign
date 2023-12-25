@@ -21,14 +21,55 @@ npm start
 ```
 The server will be running at http://localhost:5000.
 # API Endpoints
- Get a List of Products
+Get a List of Products
+
 Endpoint: GET /api/products
+
 Description: Retrieve a list of all products.
+
 Example Response:
 ```javascript
 [
-  { "id": 1, "name": "Product 1", "price": 10.99 },
-  { "id": 2, "name": "Product 2", "price": 19.99 }
+  { "id": 1, "name": "Product 1", "price": 20.99 },
+  { "id": 2, "name": "Product 2", "price": 17.99 }
 ]
 ```
+### Get Details of a Specific Product
+- Endpoint: GET /api/products/:id
+* Description: Retrieve details of a specific product by ID.
++ Example Response:
+
+```json
+{ "id": 1, "name": "Product 1", "price": 20.99 }
+```
+### Create a New Product
+- Endpoint: POST /api/products
+* Description: Create a new product.
++ Request Body:
+```json
+{ "name": "New Product", "price": 29.99 }
+```
+### Update Details of a Specific Product
+- Endpoint: PUT /api/products/:id
+* Description: Update details of a specific product by ID.
++ Request Body:
+```json
+{ "name": "Updated Product", "price": 39.99 }
+```
+### Delete a Product
+- Endpoint: DELETE /api/products/:id
+* Description: Delete a product by ID.
++ Example Response: No content (status code 204)
+
+## Middleware
+The API includes a middleware function that logs the timestamp, HTTP method, and request URL for every incoming request.
+This logging helps in monitoring and debugging.
+
+## Testing
+The project includes a set of test cases written using Mocha, Chai, and Supertest. To run the tests, use the following command:
+```
+npm test
+```
+# Conclusion
+This API provides a basic foundation for managing products and can be extended based on specific project requirements. Feel free to modify and enhance the code according to your needs.
 
